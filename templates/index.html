@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+  
+  <head>
+      <meta charset='utf-8'>
+      <title>Twitter Bot or Not</title>
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+      <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', filename='styles/botornot.css') }}">
+  </head>
+  
+
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-one-third has-text-centered">
+              <span class="icon is-large">
+                <span class="fa-stack fa-lg">
+                  <a href="/">
+                    <i class="fas fa-robot fa-stack-1x" style="color: darkslategray"></i>
+                    <i class="fas fa-ban fa-stack-2x has-text-danger" style = "color: red"></i>
+                  </a>
+                </span>
+              </span> 
+              <h1 class="title" style="color: darkslategray">Twitter Bot or Not</h1>
+              <div class='make-prediction'>
+              <form class="form" method = 'POST' action='/predict'>
+                <div class="control">
+                  <div class="field">
+                    <input class="input is-info is-rounded" type='text' name='handle' id='handle' placeholder="Enter a Twitter handle"><br>
+                  </div>
+                </div>
+                <input class="button is-info is-rounded" style="font-weight:bold;" type='submit' value='Submit' method='get'>
+              </form>
+              </div>
+            </div>
+          </div>
+          <div class='prediction-results'>
+            <p style="font-weight: 900">{{user_lookup_message}}</p>  
+            <h3>{{prediction | safe}}</h3>
+            <p style="font-weight: 350">{{probability}}</p>
+          </div>  
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <footer>
+    <div class="columns is-centered" style="margin: 6rem">
+      <p style="font-size: 1.2em"><a target="_blank" rel="noopener noreferrer" href="https://github.com/anushkadixit1708/Twitter-Bot-Detection">Twitter Bot or Not</a> by Anushka Dixit | Manasvi Alimchandani | Yasharth Tripathi
+       
+    </div>
+  </footer>
+
+</html>
